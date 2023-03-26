@@ -1,0 +1,50 @@
+label {
+  display: block;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+input[type="text"] {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  width: 316px;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+    @media only screen and (max-width: 600px) {
+      .container {
+        flex-direction: column;
+        margin-top: 20px;
+      }
+      .input, .result {
+        width: 80%;
+        margin: 10px;
+        font-size: 16px;
+      }
+      .button {
+        width: 80%;
+        margin: 10px;
+        font-size: 16px;
+        padding: 10px;
+      }
+    }

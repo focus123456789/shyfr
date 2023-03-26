@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Шифрування та розшифрування тексту</title>
+    <script>
+function encrypt(message) {
+  const alphabet = 'абвгґдеєжзиіїйклмнопрстуфхцчшщьюя';
+  let result = '';
+  for (let i = 0; i < message.length; i++) {
+    const letter = message[i].toLowerCase();
+    const index = alphabet.indexOf(letter);
+    if (index !== -1) {
+      result += (index.toString() + '.');
+    }
+  }
+  return result.slice(0, -1);
+}
+
+function decrypt(message) {
+  const alphabet = 'абвгґдеєжзиіїйклмнопрстуфхцчшщьюя';
+  const codes = message.split('.');
+  let result = '';
+  for (let i = 0; i < codes.length; i++) {
+    const code = parseInt(codes[i]);
+    if (code >= 1 && code <= alphabet.length) {
+      result += alphabet[code];
+    } else {
+      result += codes[i];
+    }
+  }
+  return result;
+}
+
+function encryptText() {
+  const message = document.getElementById('encrypt-input').value;
+  const encryptedResult = document.getElementById('encrypted-result');
+  encryptedResult.textContent = encrypt(message);
+}
+
+function decryptText() {
+  const message = document.getElementById('decrypt-input').value;
+  const decryptedResult = document.getElementById('decrypted-result');
+  decryptedResult.textContent = decrypt(message);
+}
+    </script>
+    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+<label for="encrypt-input">Введіть текст для шифрування:</label>
+<input type="text" id="encrypt-input"><br>
+
+<label for="decrypt-input">Введіть текст для розшифрування:</label>
+<input type="text" id="decrypt-input"><br>
+
+<button onclick="encryptText()">Зашифрувати текст</button>
+<button onclick="decryptText()">Розшифрувати текст</button><br>
+
+<p id="encrypted-result"></p>
+<p id="decrypted-result"></p>
+  </body>
+</html>
